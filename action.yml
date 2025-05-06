@@ -1,0 +1,20 @@
+name: "Jira PR Updater"
+description: "Updates Pull Request title and body with Jira issue details"
+author: "Your Name"
+
+inputs:
+  github-token:
+    description: "GitHub token used to update PR"
+    required: true
+    default: ${{ github.token }}
+  jira-base-url:
+    description: "Base URL for your Jira instance (e.g., https://yourorg.atlassian.net)"
+    required: true
+
+runs:
+  using: "node20"
+  main: "dist/index.js"
+
+branding:
+  icon: "link"
+  color: "blue"

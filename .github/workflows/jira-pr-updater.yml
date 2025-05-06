@@ -1,0 +1,16 @@
+name: Jira PR Updater
+
+on:
+  pull_request:
+    types: [opened, reopened, edited]
+
+jobs:
+  update-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update PR with Jira Info
+        uses: ./  # Use this path when testing locally
+        # uses: your-username/jira-pr-updater@v1  # Use this path when published to GitHub Marketplace
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          jira-base-url: 'https://your-org.atlassian.net'
